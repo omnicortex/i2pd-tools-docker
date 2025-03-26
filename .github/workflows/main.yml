@@ -1,6 +1,8 @@
-name: Build nightly
+name: Build release
 on:
   push:
+    branches:
+      - '2025.02'
 
 jobs:
   build:
