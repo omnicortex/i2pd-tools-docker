@@ -3,41 +3,5 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
-        {
-            "label": "vagrantup-server",
-            "type": "shell",
-            "command": "vagrant up server",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "get-server-ip",
-            "type": "shell",
-            "dependsOn": [
-                "vagrantup-server"
-            ],
-            "command": "bash get-server-ip.sh",
-            "options": {
-                "cwd": "${workspaceFolder}"        
-            }
-        },
-        {
-            "label": "vagrantup-client",
-            "type": "shell",
-            "dependsOn": [
-                "get-server-ip"
-            ],
-            "command": "vagrant up client",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "Build",
-            "dependsOn": [
-                "vagrantup-client"
-            ]
-        }
     ]
 }
