@@ -21,7 +21,7 @@ RUN  make
 
 RUN mkdir -p /artifact
 RUN find . -maxdepth 1 -type f -executable ! -name "*.*" ! -iname '*.sample' -exec cp {} /artifact/ \;
-   
+RUN rm -f /artifact/Makefile
 
 FROM debian:12-slim
 
@@ -40,6 +40,8 @@ RUN apt-get install -y \
     libssl3 \
     zlib1g
     
+RUN apt-get clean autoclean && \
+    apt-get autoremove --yes && \
+    rm -rf /var/lib/{apt,dpkg,cache,log}/
+    
 WORKDIR /i2pd-tools
-
-#ENTRYPOINT ["/root/go/src/github.com/syncthing", "-no-browser", "-no-restart"]
