@@ -1,8 +1,6 @@
 name: Build release
 on:
   push:
-    branches:
-      - '2025.02'
 
 jobs:
   build:
@@ -27,5 +25,5 @@ jobs:
         context: .
         push: true
         tags: |
-          ghcr.io/${{ github.repository_owner }}/i2pd-tools:2025.02
+          ghcr.io/${{ github.repository_owner }}/i2pd-tools:latest
 

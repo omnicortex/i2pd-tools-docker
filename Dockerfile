@@ -9,7 +9,6 @@ RUN git clone --recursive https://github.com/purplei2p/i2pd-tools
 
 WORKDIR /i2pd-tools
 
-RUN git checkout 33fce4b087d92ee90653460bbe7a07cdc0c7b121
 RUN sed -i -e "s/sudo//" -e "s/apt install/apt install -y/" dependencies.sh && \
     sed -i -e "s/sudo//" -e "s/apt-get install/apt-get install -y/" dependencies.sh && \
     bash dependencies.sh 
